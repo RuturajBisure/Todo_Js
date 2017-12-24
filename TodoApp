@@ -1,0 +1,102 @@
+Todo
+******USING ARRAYS*****
+//display todos 
+  var todos = ['item1', 'item2', 'item3']
+console.log('My Todos:',todos)
+
+//Add todos 
+todos.push('item4')
+
+//changing values in todos 
+todos[value] = new_value;
+
+//delete todos using SPLICE command
+todos.splice(value,range)
+
+******USING FUNCTION*****
+
+//display todos 
+var todos = ['item1', 'item2', 'item3']
+function displayTodos(){
+	console.log('Todos:',todos)
+}
+
+//Add todos 
+function addTodos(item){
+  todos.push(item);
+  displayTodos();
+}
+
+//changing values in todos 
+function changeTodos(position, new_value){
+  todos[position] = new_value;
+  displayTodos();
+}
+
+//delete todos using SPLICE command
+function deleteTodos(position){
+  todos.splice(position,1);
+  displayTodos();
+}
+
+
+*****USING OBJECT*****
+creating objects in js
+var name = {
+  name1: 'vale',
+  name2: 'val2'
+};
+
+accessing name.name1
+
+
+
+var  todoList = {
+  todos: ['item1', 'item2', 'item3'],
+  displayTodos: function(){
+    console.log('My todos:',this.todos);
+  },
+  addTodos: function(todo){
+    this.todos.push(todo);
+    this.displayTodos();
+  },
+  changeTodos: function(position,new_value){
+    this.todos[position] = new_value;
+    this.displayTodos();
+  },
+  deleteTodos: function(pos){
+    this.todos.splice(pos,1);
+    this.displayTodos();
+  }
+};
+
+
+
+******USING ARRAY OF OBJECTS*****
+var  todoList = {
+  todos: [],
+  displayTodos: function(){
+    console.log('My todos:',this.todos);
+  },
+  addTodos: function(todoText){
+    this.todos.push({      //HERE instead of seperate value we added object push()
+      todoText: todoText,
+      completed: false
+    });
+    this.displayTodos();
+  },
+  changeTodos: function(position,new_value){
+    this.todos[position].todoText = new_value;
+    this.displayTodos();
+  },
+  deleteTodos: function(pos){
+    this.todos.splice(pos,1);
+    this.displayTodos();
+  },
+  toggleCompleted: function(position){
+    var todo = this.todos[position];
+    todo.completed = !todo.completed;
+    this.displayTodos();
+  }
+};
+  
